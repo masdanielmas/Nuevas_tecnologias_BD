@@ -8,52 +8,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f9fafc;
-      color: #333;
-    }
-    .navbar {
-      background: linear-gradient(90deg, #0d6efd, #0dcaf0);
-    }
-    .navbar-brand, .nav-link {
-      color: white !important;
-    }
-    header {
-      background: linear-gradient(rgba(3, 32, 77, 0.8), rgba(3, 32, 77, 0.8)), url('https://picsum.photos/1920/600') center/cover;
-      color: white;
-      padding: 100px 0;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 3rem;
-      font-weight: 700;
-    }
-    .card {
-      border: none;
-      border-radius: 1rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-    }
-    footer {
-      background-color: #0d6efd;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      margin-top: 50px;
-    }
-  </style>
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="#">Konrad Búsqueda</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
               data-bs-target="#navbarNav" aria-controls="navbarNav" 
               aria-expanded="false" aria-label="Toggle navigation">
@@ -100,10 +62,10 @@
         </thead>
         <tbody>
           <tr>
-            <td>Juan Pérez</td>
+            <td>Daniel Mamsela</td>
             <td>Scopus</td>
-            <td>"Artificial Intelligence" AND "Education" NOT "Primary School"</td>
-            <td>230</td>
+            <td>"Artificial Intelligence" AND "Higher Education"</td>
+            <td>6.058</td>
           </tr>
           <tr>
             <td>María Gómez</td>
@@ -116,6 +78,12 @@
     </div>
   </section>
 
+  <!-- Buscador -->
+  <div class="container my-4">
+    <input type="text" id="buscador" onkeyup="buscarArticulos()" 
+           class="form-control" placeholder="Buscar artículos...">
+  </div>
+
   <!-- Artículos -->
   <section id="articulos" class="container my-5">
     <h2 class="mb-4 text-primary">Artículos Seleccionados</h2>
@@ -124,13 +92,30 @@
       <div class="col-md-4">
         <div class="card h-100">
           <div class="card-body">
-            <h5 class="card-title">Artificial Intelligence in Higher Education</h5>
-            <p class="card-text"><strong>Autores:</strong> Smith, J. & Lee, K.<br>
-            <strong>Año:</strong> 2022<br>
-            <strong>Fuente:</strong> Journal of Educational Technology</p>
-            <p class="small">Resumen: Este artículo analiza cómo la IA se está utilizando en universidades para personalizar la enseñanza...</p>
+            <h5 class="card-title">Inteligencia artificial e investigación formativa: una revisión crítica desde la realidad universitaria</h5>
+            <p><strong>Autores:</strong> Morales Romero, Guillermo Pastor<br>
+               <strong>Año:</strong> 2025<br>
+               <strong>Fuente:</strong> Departamento de Matemática e Informática, Facultad de Ciencias, Universidad Nacional de Educación Enrique Guzmán y Valle, Perú</p>
+            <button class="btn btn-sm btn-outline-primary" onclick="toggleResumen('resumen1')">
+              Ver Resumen
+            </button>
+            <p id="resumen1" style="display:none;" class="small">
+              El artículo *“Inteligencia Artificial y la investigación formativa:
+            una revisión crítica a partir de la realidad universitaria”* (Morales Romero, 2025) 
+            analiza cómo la inteligencia artificial se ha convertido en una herramienta clave para 
+            fortalecer el aprendizaje y la investigación formativa en la educación superior. 
+            A través de un estudio cuantitativo correlacional con 60 estudiantes de la Universidad Nacional de Educación 
+            Enrique Guzmán y Valle (Perú), se encontró una relación significativa (p = 0,000) entre el uso de la IA y el desarrollo
+            de competencias investigativas. Los resultados evidencian que la IA facilita el acceso a información, 
+            mejora los procesos de análisis y fomenta la generación de conocimiento; sin embargo, 
+            también plantea riesgos relacionados con desigualdades tecnológicas, 
+            privacidad de datos y dependencia excesiva de estas herramientas. 
+            En conclusión, la IA representa un aliado valioso para la formación académica e investigativa 
+            siempre que se utilice de manera crítica, ética y responsable.
+
+            </p>
             <span class="badge bg-primary">AI</span>
-            <span class="badge bg-success">Education</span>
+            <span class="badge bg-success">Higher Education</span>
           </div>
         </div>
       </div>
@@ -139,10 +124,15 @@
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title">Machine Learning for Student Assessment</h5>
-            <p class="card-text"><strong>Autores:</strong> González, M. & Patel, R.<br>
-            <strong>Año:</strong> 2021<br>
-            <strong>Fuente:</strong> Computers & Education</p>
-            <p class="small">Resumen: Se presentan modelos de aprendizaje automático aplicados a la evaluación del rendimiento estudiantil...</p>
+            <p><strong>Autores:</strong> González, M. & Patel, R.<br>
+               <strong>Año:</strong> 2021<br>
+               <strong>Fuente:</strong> Computers & Education</p>
+            <button class="btn btn-sm btn-outline-primary" onclick="toggleResumen('resumen2')">
+              Ver Resumen
+            </button>
+            <p id="resumen2" style="display:none;" class="small">
+              Se presentan modelos de aprendizaje automático aplicados a la evaluación del rendimiento estudiantil...
+            </p>
             <span class="badge bg-warning">ML</span>
             <span class="badge bg-info">Assessment</span>
           </div>
@@ -153,10 +143,15 @@
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title">Ethical Challenges of AI in Education</h5>
-            <p class="card-text"><strong>Autores:</strong> Kim, S. & Brown, T.<br>
-            <strong>Año:</strong> 2023<br>
-            <strong>Fuente:</strong> Education & Society</p>
-            <p class="small">Resumen: Explora los dilemas éticos del uso de inteligencia artificial en el aula, incluyendo privacidad y sesgos...</p>
+            <p><strong>Autores:</strong> Kim, S. & Brown, T.<br>
+               <strong>Año:</strong> 2023<br>
+               <strong>Fuente:</strong> Education & Society</p>
+            <button class="btn btn-sm btn-outline-primary" onclick="toggleResumen('resumen3')">
+              Ver Resumen
+            </button>
+            <p id="resumen3" style="display:none;" class="small">
+              Explora los dilemas éticos del uso de inteligencia artificial en el aula, incluyendo privacidad y sesgos...
+            </p>
             <span class="badge bg-danger">Ethics</span>
             <span class="badge bg-secondary">AI</span>
           </div>
@@ -167,10 +162,13 @@
 
   <!-- Footer -->
   <footer>
+    <p>Visitas a la página: <span id="contador">0</span></p>
     <p>© 2025 - Proyecto de Búsqueda Científica | Konrad Lorenz</p>
   </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Script propio -->
+  <script src="script.js"></script>
 </body>
 </html>
