@@ -22,14 +22,3 @@ function buscarArticulos() {
     }
   }
 }
-
-// ====== 3. Contador de Visitas ======
-function contarVisitas() {
-  let visitas = localStorage.getItem("visitas") || 0;
-  visitas++;
-  localStorage.setItem("visitas", visitas);
-  document.getElementById("contador").innerText = visitas;
-}
-
-// ====== Ejecutar contador al cargar ======
-window.onload = contarVisitas;
